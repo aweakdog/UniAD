@@ -22,7 +22,7 @@ if [ ! -d ${WORK_DIR}logs ]; then
 fi
 
 PYTHONPATH="$(dirname $0)/..":$PYTHONPATH \
-python -m torch.distributed.launch \
+python3 -m torch.distributed.launch \
     --nproc_per_node=${GPUS_PER_NODE} \
     --master_addr=${MASTER_ADDR} \
     --master_port=${MASTER_PORT} \
