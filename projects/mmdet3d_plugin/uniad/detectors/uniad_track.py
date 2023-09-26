@@ -4,6 +4,7 @@
 # Copyright (c) OpenDriveLab. All rights reserved.                                #
 #---------------------------------------------------------------------------------#
 
+from socket import TIPC_MEDIUM_IMPORTANCE
 import torch
 import torch.nn as nn
 from mmcv.runner import auto_fp16
@@ -512,6 +513,23 @@ class UniADTrack(MVXTwoStageDetector):
         num_frame = img.size(1)
         # init gt instances!
         gt_instances_list = []
+
+        def tmp_pt(tmp_str,tmp_val):
+            print('len_'+tmp_str,len(tmp_val))
+            if (len(tmp_val)>0):
+                print(tmp_str+'_shape:',tmp_val[0].shape)
+        
+        print('*****************************************************')
+        print('img_shape:',img.shape)
+        print('len_img_metas:',len(img_metas))
+        print('len_gt_bboxes_3d:',len(gt_bboxes_3d))
+        tmp_pt('gt_labels_3d',gt_labels_3d)
+        print('gt_inds:',len(gt_inds))
+        tmp_pt('gt_inds',gt_inds)
+        print('len_timestamp:',len(timestamp))
+        tmp_pt('gt_past_traj:',gt_past_traj)
+        tmp_pt('gt_past_traj_mask:',gt_past_traj_mask)
+        print('*****************************************************')
 
         for i in range(num_frame):
             gt_instances = Instances((1, 1))
