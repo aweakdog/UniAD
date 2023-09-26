@@ -517,7 +517,7 @@ class UniADTrack(MVXTwoStageDetector):
         def tmp_pt(tmp_str,tmp_val):
             print('len_'+tmp_str,len(tmp_val))
             if (len(tmp_val)>0):
-                print(tmp_str+'_shape:',tmp_val[0].shape)
+                print(tmp_str+'_shape:',type(tmp_val))
         
         print('*****************************************************')
         print('img_shape:',img.shape)
