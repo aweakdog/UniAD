@@ -528,6 +528,10 @@ class UniADTrack(MVXTwoStageDetector):
         print('img_shape:',img.shape)
         print('len_img_metas:',len(img_metas))
         print('len_gt_bboxes_3d:',len(gt_bboxes_3d))
+        if (len(gt_bboxes_3d)>0):
+            print('len_gt_bboxes_3d[0]:',len(gt_bboxes_3d[0]))
+            if(len(gt_bboxes_3d[0])>0):
+                print('len_gt_bboxes_3d[0][0]:',len(gt_bboxes_3d[0][0]))
         tmp_pt('gt_labels_3d',gt_labels_3d)
         print('gt_inds:',len(gt_inds))
         tmp_pt('gt_inds',gt_inds)
