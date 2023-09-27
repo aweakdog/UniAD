@@ -518,6 +518,10 @@ class UniADTrack(MVXTwoStageDetector):
             print('len_'+tmp_str,len(tmp_val))
             if (len(tmp_val)>0):
                 print(tmp_str+'_shape:',type(tmp_val[0]))
+                if type(tmp_val[0])==list:
+                    if(len(tmp_val[0])>0):
+                        print('len(this[0]):',tmp_val[0])
+                        print('type(this[0][0]):',type(tmp_val[0][0]))
         
         print('*****************************************************')
         print('img_shape:',img.shape)
