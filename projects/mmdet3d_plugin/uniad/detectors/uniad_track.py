@@ -540,7 +540,9 @@ class UniADTrack(MVXTwoStageDetector):
         print('show_the_ids:',gt_inds[0][0])
         print('len_timestamp:',len(timestamp))
         tmp_pt('gt_past_traj:',gt_past_traj)
+        print('show_gt_past_traj',gt_past_traj[0][0][0])
         tmp_pt('gt_past_traj_mask:',gt_past_traj_mask)
+        print('show_gt_past_traj_mask',gt_past_traj_mask[0][0][0])
         print('*****************************************************')
 
         for i in range(num_frame):
