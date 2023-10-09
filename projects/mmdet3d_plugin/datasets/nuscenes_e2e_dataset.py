@@ -268,6 +268,11 @@ class NuScenesE2EDataset(NuScenesDataset):
         gt_labels_3d_list = [each['gt_labels_3d'].data for each in queue]
         gt_sdc_label_list = [each['gt_sdc_label'].data for each in queue]
         gt_inds_list = [to_tensor(each['gt_inds']) for each in queue]
+        for each in queue:
+            print("272**********************************************************")
+            print('type:',type(each['gt_bboxes_3d']))
+            print(each['gt_bboxes_3d'].data)
+            break
         gt_bboxes_3d_list = [each['gt_bboxes_3d'].data for each in queue]
         gt_past_traj_list = [to_tensor(each['gt_past_traj']) for each in queue]
         gt_past_traj_mask_list = [
