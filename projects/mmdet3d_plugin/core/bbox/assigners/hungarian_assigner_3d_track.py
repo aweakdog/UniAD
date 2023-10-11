@@ -91,6 +91,11 @@ class HungarianAssigner3DTrack(BaseAssigner):
             return (None, None)
         # 2. compute the weighted costs
         # classification and bboxcost.
+
+        print('94*********cls_pred_shape:',cls_pred.shape)
+        print('94*********cls_pred_shape:',gt_labels.shape)
+        print('94*********cls_pred:',cls_pred)
+        print('94*********gt_labels:',gt_labels)
         cls_cost = self.cls_cost(cls_pred, gt_labels)
         # regression L1 cost
         reg_cost = self.reg_cost(bbox_pred[:, :8], gt_bboxes[:, :8])
