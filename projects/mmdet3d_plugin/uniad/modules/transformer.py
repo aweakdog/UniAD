@@ -204,8 +204,8 @@ class PerceptionTransformer(BaseModule):
         img_metas=None
     ):
         bs = bev_embed.shape[1]
-        print('bev_embed_shape:',bev_embed.shape)
-        print('208**************bs:',bs)
+        print('204object_query_embed:',object_query_embed.shape)
+        print('205self.embed_dims:',self.embed_dims)
         query_pos, query = torch.split(
             object_query_embed, self.embed_dims, dim=1)
         query_pos = query_pos.unsqueeze(0).expand(bs, -1, -1)
