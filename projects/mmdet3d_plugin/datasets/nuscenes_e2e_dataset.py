@@ -233,7 +233,6 @@ class NuScenesE2EDataset(NuScenesDataset):
             assert example['gt_labels_3d'].data.shape[0] == example['gt_past_traj'].shape[0]
             data_queue.insert(0, copy.deepcopy(example))
         data_queue = self.union2one(data_queue)
-        
         return data_queue
 
     def prepare_test_data(self, index):
@@ -329,11 +328,6 @@ class NuScenesE2EDataset(NuScenesDataset):
         queue['gt_past_traj_mask'] = DC(gt_past_traj_mask_list)
         queue['gt_future_boxes'] = DC(gt_future_boxes_list, cpu_only=True)
         queue['gt_future_labels'] = DC(gt_future_labels_list)
-
-
-        print('236**********************************')
-        print('type',type(queue['gt_bboxes_3d']))
-        print(queue['gt_bboxes_3d'])
         return queue
 
     def get_ann_info(self, index):
@@ -1134,6 +1128,11 @@ class NuScenesE2EDataset(NuScenesDataset):
             'v1.0-trainval': 'val',
         }
         detail = dict()
+
+        print('len(self.data_infos):',self.data_infos)
+        print('self.data_infos:',self.data_infos)
+        print('self.data_infos[0].keys:',self.data_infos[0].keys())
+        print('self.data_infos[0][token]:',self.data_infos[0]['token'])
 
         if 'det' in self.eval_mod:
             self.nusc_eval = NuScenesEval_custom(
